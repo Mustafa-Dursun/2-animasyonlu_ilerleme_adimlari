@@ -3,6 +3,8 @@
 :root{
     --line-border-fill:#ff4d6d;
     --line-border-empty: #dee2e6;
+    --body-background:#f8f9fa;
+    --beyaz:#fff;
 }
 
 *{
@@ -11,14 +13,13 @@
 
 body{
     font-family: 'Inter', sans-serif;
+    background-color: var(--body-background);
     height: 100vh;
-    background-color: #f8f9fa;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     margin: 0;
+    overflow: hidden;
 }
 
 .container{
@@ -26,18 +27,19 @@ body{
 }
 
 .progress-container{
+    width: 500px;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-bottom: 30px;
-    width: 350px;
-    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 50px;
 }
 
-.progress-container::before{
-    content: '';
+.progres-empty{
     background-color: var(--line-border-empty);
-    height: 4px;
+    border-radius: 10px;
+    height: 10px;
     width: 100%;
     position: absolute;
     top: 50%;
@@ -49,26 +51,28 @@ body{
 
 .progress{
     background-color: var(--line-border-fill);
-    height: 4px;
+    border-radius: 10px;
+    height: 10px;
     width: 0;
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
     z-index: -1;
-    transition: 0.4s ease;
+    transition: 0.8s ease;
+
 }
 
 .circle{
-    background-color: #fff;
+    background-color: var(--beyaz);
+    width: 70px;
+    height: 70px;
+    border: 10px solid var(--line-border-empty);
     border-radius: 50%;
-    border: 3px solid var(--line-border-empty);
-    width: 30px;
-    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.4s ease;
+    transition: 0.8s ease;
 }
 
 .circle.active{
@@ -77,21 +81,14 @@ body{
 
 .btn{
     background-color: var(--line-border-fill);
-    color: #fff;
+    color: var(--beyaz);
     border: none;
+    padding: 10px 25px;
     border-radius: 10px;
-    padding: 8px 24px;
-    cursor: pointer;
+    margin: 10px;
     font-family: inherit;
-    margin: 5px;
-}
-
-.btn.active{
-    transform: scale(0.98);
-}
-
-.btn:focus{
-    outline: 0;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .btn:disabled{
